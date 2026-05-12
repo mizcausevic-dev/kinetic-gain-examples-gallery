@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: #f8fafc;
+  color: #1e293b;
+  -webkit-font-smoothing: antialiased;
+}
+
+.code { font-family: var(--font-mono); }
+
+/* Lightweight JSON syntax-highlight classes used by the renderer */
+.json-key   { color: #0e7490; }
+.json-str   { color: #047857; }
+.json-num   { color: #b45309; }
+.json-bool  { color: #be185d; font-weight: 600; }
+.json-null  { color: #6b7280; font-style: italic; }
+.json-punct { color: #94a3b8; }
