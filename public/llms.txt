@@ -2,7 +2,7 @@
 
 > Pick a spec from the sidebar, see its canonical example with JSON highlight.
 
-Interactive gallery of the canonical example documents for all 10 specs. Sidebar filters by category (core / EdTech / HealthTech / cross-cutting). Main pane renders each example with syntax-highlighted JSON, copy-to-clipboard, and links to the spec repo + unified visualizer.
+Interactive gallery of the canonical example documents for all 11 specs. Sidebar filters by category (core / EdTech / HealthTech / cross-cutting). Main pane renders each example with syntax-highlighted JSON, copy-to-clipboard, and links to the spec repo + unified visualizer.
 
 ## Identity
 
@@ -19,13 +19,15 @@ Interactive gallery of the canonical example documents for all 10 specs. Sidebar
 
 ## Part of the Kinetic Gain Protocol Suite
 
-A family of **10 open JSON specifications** for the answer-engine and agent era — five core (AEO, Prompt Provenance, Agent Cards, AI Evidence Format, MCP Tool Cards), a three-spec EdTech trio (Tutor Cards / Student AI Disclosure / Classroom AI AUP), a HealthTech extension (Clinical AI Disclosure), and a cross-cutting Incident Card. **Two regulated verticals covered.**
+A family of **11 open JSON specifications** for the answer-engine and agent era — five core (AEO, Prompt Provenance, Agent Cards, AI Evidence Format, MCP Tool Cards), a three-spec EdTech trio (Tutor Cards / Student AI Disclosure / Classroom AI AUP), a HealthTech extension (Clinical AI Disclosure), a cross-cutting Incident Card, and the buyer-side AI Procurement Decision Card. **Two regulated verticals covered.**
 
 - **Front door**: [suite.kineticgain.com](https://suite.kineticgain.com/)
 - **Quickstart hub**: [docs.kineticgain.com](https://docs.kineticgain.com/)
-- **Unified MCP server** (34 tools, 8 specs, v0.4.0): [github.com/mizcausevic-dev/mcp-kinetic-gain](https://github.com/mizcausevic-dev/mcp-kinetic-gain)
-- **Unified visualizer** (8 renderers): [github.com/mizcausevic-dev/kinetic-gain-visualizer](https://github.com/mizcausevic-dev/kinetic-gain-visualizer)
+- **Unified MCP server** (63 tools across 11 specs): [github.com/mizcausevic-dev/mcp-kinetic-gain](https://github.com/mizcausevic-dev/mcp-kinetic-gain)
+- **Unified visualizer** (auto-detects all 11 specs): [github.com/mizcausevic-dev/kinetic-gain-visualizer](https://github.com/mizcausevic-dev/kinetic-gain-visualizer)
 - **Meta-repo**: [github.com/mizcausevic-dev/kinetic-gain-protocol-suite](https://github.com/mizcausevic-dev/kinetic-gain-protocol-suite)
+- **Portfolio map**: [portfolio.kineticgain.com](https://portfolio.kineticgain.com/)
+- **Disclosure research**: [pulse.kineticgain.com](https://pulse.kineticgain.com/)
 
 ## Author
 

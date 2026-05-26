@@ -382,6 +382,139 @@ export const SPECS: SpecEntry[] = [
       last_updated_at: '2026-04-26T16:30:00Z',
     },
   },
+  {
+    key: 'decision-card',
+    title: 'AI Procurement Decision Card',
+    category: 'cross',
+    accent: 'purple',
+    version_field: 'decision_card_version',
+    well_known: '/.well-known/decisions/<decision_id>.json',
+    one_liner: 'Buyer-side approval record that closes the loop on vendor disclosure.',
+    landing_url: 'https://decisions.kineticgain.com',
+    repo_url: 'https://github.com/mizcausevic-dev/ai-procurement-decision-spec',
+    example_caption: 'A school district approves a tutor with explicit contractual conditions, cited vendor disclosures, and a signed review window that downstream policy engines can enforce.',
+    example: {
+      decision_card_version: '0.1',
+      decision_id: 'SPRINGFIELD-DEC-2026-001',
+      issued_at: '2026-05-14T19:00:00Z',
+      buyer: {
+        name: 'Springfield Unified School District',
+        type: 'school-district',
+        category: 'edtech-district',
+        jurisdiction: 'US-CA',
+        url: 'https://springfield.edu/',
+        contact: 'procurement@springfield.edu',
+        id: 'https://springfield.edu/#org',
+      },
+      decision_maker: {
+        role: 'Director of Educational Technology',
+        name: 'Dr. Jane Doe',
+        department: 'Office of Technology',
+        authority: 'Board Resolution 2026-04',
+      },
+      decision: {
+        status: 'approved-with-conditions',
+        effective_from: '2026-09-01',
+        effective_until: '2027-08-31',
+        scope: 'K-12 classroom use during regular school hours. Not approved for assessment or grading workflows.',
+      },
+      subject: {
+        vendor_name: 'AcmeTutor Inc.',
+        product_name: 'AcmeTutor 3.0',
+        vendor_id: 'https://acmetutor.example/.well-known/aeo.json',
+        documents_reviewed: [
+          {
+            type: 'tutor-card',
+            url: 'https://acmetutor.example/.well-known/tutor-card.json',
+            fetched_at: '2026-05-10T14:00:00Z',
+            content_hash: 'sha256:0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef',
+            version: '3.0.2',
+          },
+          {
+            type: 'student-ai-disclosure',
+            url: 'https://acmetutor.example/.well-known/student-ai-disclosure.json',
+            fetched_at: '2026-05-10T14:00:00Z',
+            content_hash: 'sha256:fedcba9876543210fedcba9876543210fedcba9876543210fedcba9876543210',
+          },
+          {
+            type: 'aeo',
+            url: 'https://acmetutor.example/.well-known/aeo.json',
+            fetched_at: '2026-05-10T14:00:00Z',
+            content_hash: 'sha256:1111222233334444555566667777888899990000aaaabbbbccccddddeeeeffff',
+          },
+        ],
+      },
+      criteria: {
+        policy_uris: [
+          'https://springfield.edu/.well-known/aup.json',
+          'https://springfield.edu/policies/ai-procurement-2026.pdf',
+        ],
+        rubric: [
+          {
+            id: 'ferpa-compliance',
+            description: 'Vendor processes student records in a FERPA-compliant manner.',
+            weight: 1.0,
+            result: 'pass',
+          },
+          {
+            id: 'coppa-compliance',
+            description: 'Vendor obtains verifiable parental consent for users under 13.',
+            weight: 1.0,
+            result: 'pass',
+          },
+          {
+            id: 'no-training-on-student-data',
+            description: 'Vendor does not use student-provided content for model training.',
+            weight: 1.0,
+            result: 'pass-with-condition',
+            notes: 'Student Disclosure asserts no-training; district requires contractual confirmation.',
+          },
+          {
+            id: 'mandated-reporter-escalation',
+            description: 'Vendor has a documented escalation path for self-harm or abuse disclosures.',
+            weight: 1.0,
+            result: 'pass',
+          },
+        ],
+      },
+      conditions: [
+        {
+          id: 'no-training-restriction',
+          description: 'Vendor SHALL NOT use Springfield USD student-provided content for model training, fine-tuning, or evaluation. Inference logs SHALL be deleted within 30 days.',
+          enforcement: 'contractual',
+          violation_response: 'Contract termination and breach notification to families within 60 days.',
+        },
+        {
+          id: 'no-assessment-use',
+          description: 'Vendor SHALL display a clear notice that AcmeTutor outputs MUST NOT be used for student assessment or grading.',
+          enforcement: 'technical',
+        },
+      ],
+      rationale:
+        'AcmeTutor 3.0 meets the district hard requirements for FERPA, COPPA, and age-appropriate content filtering. Approval is limited to classroom support and excludes assessment workflows.',
+      history: [
+        { event: 'review_started', at: '2026-04-15T10:00:00Z', actor: 'EdTech Procurement Committee' },
+        { event: 'documents_collected', at: '2026-05-10T14:00:00Z', actor: 'Dr. Jane Doe' },
+        { event: 'approved-with-conditions', at: '2026-05-14T19:00:00Z', actor: 'Dr. Jane Doe' },
+      ],
+      appeals: {
+        deadline: '2026-06-14',
+        process_uri: 'https://springfield.edu/procurement/appeals',
+        contact: 'appeals@springfield.edu',
+      },
+      publication: {
+        publication_uri: 'https://springfield.edu/.well-known/decisions/SPRINGFIELD-DEC-2026-001.json',
+        is_public: true,
+      },
+      signatures: [
+        {
+          signer: 'Dr. Jane Doe, Director of Educational Technology',
+          signed_at: '2026-05-14T19:00:00Z',
+          method: 'electronic-attestation',
+        },
+      ],
+    },
+  },
 ];
 
 export const CATEGORY_LABELS: Record<SpecEntry['category'], string> = {
@@ -402,4 +535,5 @@ export const ACCENT_CLASSES: Record<string, { bg: string; border: string; text: 
   fuchsia: { bg: 'bg-fuchsia-50', border: 'border-fuchsia-300', text: 'text-fuchsia-700', dot: 'bg-fuchsia-500' },
   cyan:    { bg: 'bg-cyan-50',    border: 'border-cyan-300',    text: 'text-cyan-700',    dot: 'bg-cyan-500' },
   red:     { bg: 'bg-red-50',     border: 'border-red-300',     text: 'text-red-700',     dot: 'bg-red-500' },
+  purple:  { bg: 'bg-purple-50',  border: 'border-purple-300',  text: 'text-purple-700',  dot: 'bg-purple-500' },
 };

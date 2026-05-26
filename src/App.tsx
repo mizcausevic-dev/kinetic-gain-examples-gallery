@@ -12,6 +12,9 @@ import { ACCENT_CLASSES, CATEGORY_LABELS, SPECS, type SpecEntry } from './specs'
 
 const SUITE_URL = 'https://suite.kineticgain.com';
 const VISUALIZER_URL = 'https://mizcausevic-dev.github.io/kinetic-gain-visualizer/';
+const DOCS_URL = 'https://docs.kineticgain.com';
+const PORTFOLIO_URL = 'https://portfolio.kineticgain.com';
+const PULSE_URL = 'https://pulse.kineticgain.com';
 
 // Trivial JSON syntax highlight by tokenizing the JSON.stringify output.
 function highlightJson(value: unknown): string {
@@ -225,8 +228,67 @@ export default function App() {
             </div>
           </section>
 
+          <section className="grid md:grid-cols-2 xl:grid-cols-4 gap-4 mb-6">
+            <a
+              href={SUITE_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-xl border border-slate-200 bg-white p-4 hover:border-slate-400 transition-colors group"
+            >
+              <div className="text-[10px] uppercase tracking-widest text-slate-500 font-bold code mb-1">
+                Protocol suite
+              </div>
+              <div className="text-sm font-semibold text-slate-900 code">11 open specs</div>
+              <div className="text-xs text-slate-500 mt-2 group-hover:text-slate-700">
+                Canonical spec landings, governance framing, and buyer-safe disclosure vocabulary.
+              </div>
+            </a>
+            <a
+              href={DOCS_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-xl border border-slate-200 bg-white p-4 hover:border-slate-400 transition-colors group"
+            >
+              <div className="text-[10px] uppercase tracking-widest text-slate-500 font-bold code mb-1">
+                Docs hub
+              </div>
+              <div className="text-sm font-semibold text-slate-900 code">Implementation routes</div>
+              <div className="text-xs text-slate-500 mt-2 group-hover:text-slate-700">
+                Quickstart, MCP install paths, validation flow, and suite integration references.
+              </div>
+            </a>
+            <a
+              href={PORTFOLIO_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-xl border border-slate-200 bg-white p-4 hover:border-slate-400 transition-colors group"
+            >
+              <div className="text-[10px] uppercase tracking-widest text-slate-500 font-bold code mb-1">
+                Portfolio map
+              </div>
+              <div className="text-sm font-semibold text-slate-900 code">22 live properties</div>
+              <div className="text-xs text-slate-500 mt-2 group-hover:text-slate-700">
+                Crawlable map of the wider Kinetic Gain network across suite, atlas, and operator surfaces.
+              </div>
+            </a>
+            <a
+              href={PULSE_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-xl border border-slate-200 bg-white p-4 hover:border-slate-400 transition-colors group"
+            >
+              <div className="text-[10px] uppercase tracking-widest text-slate-500 font-bold code mb-1">
+                Procurement pulse
+              </div>
+              <div className="text-sm font-semibold text-slate-900 code">Disclosure research</div>
+              <div className="text-xs text-slate-500 mt-2 group-hover:text-slate-700">
+                Market-facing research layer measuring adoption of the suite’s machine-readable disclosure pattern.
+              </div>
+            </a>
+          </section>
+
           <p className="text-xs text-slate-500 mt-6">
-            Every example is the canonical reference document from the spec's <code>examples/</code> folder. The visualizer renders each one with full procurement-grade UI; the bare JSON is here so you can copy + adapt without leaving the gallery.
+            Every example is the canonical reference document from the spec&apos;s <code>examples/</code> folder. The visualizer renders each one with procurement-grade UI, and this gallery keeps all eleven suite documents visible in one crawlable surface so developers, buyers, and answer engines can inspect the raw JSON without leaving the estate.
           </p>
         </main>
       </div>
@@ -246,13 +308,16 @@ function Nav() {
           <div className="leading-tight">
             <div className="font-bold text-sm">Kinetic Gain Examples</div>
             <div className="text-[10px] uppercase tracking-widest text-slate-500 code">
-              10 specs · canonical reference documents
+              11 specs · canonical examples · answer-engine ready
             </div>
           </div>
         </a>
         <div className="hidden md:flex items-center gap-4">
           <a className="text-sm text-slate-600 hover:text-slate-900 inline-flex items-center gap-1.5" href={SUITE_URL} target="_blank" rel="noreferrer">
             <Sparkles size={14} /> suite.kineticgain.com
+          </a>
+          <a className="text-sm text-slate-600 hover:text-slate-900 inline-flex items-center gap-1.5" href={DOCS_URL} target="_blank" rel="noreferrer">
+            <ExternalLink size={14} /> docs.kineticgain.com
           </a>
           <a className="text-sm text-slate-600 hover:text-slate-900 inline-flex items-center gap-1.5" href="https://github.com/mizcausevic-dev" target="_blank" rel="noreferrer">
             <Github size={14} /> GitHub
@@ -268,11 +333,17 @@ function Footer() {
     <footer className="border-t border-slate-200 bg-white py-6">
       <div className="max-w-7xl mx-auto px-4 text-xs text-slate-500 flex flex-wrap items-center gap-3">
         <span>
-          <strong className="text-slate-700">examples.kineticgain.com</strong> · canonical reference documents · client-side · no API calls
+          <strong className="text-slate-700">examples.kineticgain.com</strong> · canonical suite examples · 11 specs · client-side · no API calls
         </span>
         <span className="text-slate-300">·</span>
         <a className="hover:text-slate-900 inline-flex items-center gap-1" href={SUITE_URL} target="_blank" rel="noreferrer">
           suite.kineticgain.com <ExternalLink size={11} />
+        </a>
+        <a className="hover:text-slate-900 inline-flex items-center gap-1" href={DOCS_URL} target="_blank" rel="noreferrer">
+          docs hub <ExternalLink size={11} />
+        </a>
+        <a className="hover:text-slate-900 inline-flex items-center gap-1" href={PORTFOLIO_URL} target="_blank" rel="noreferrer">
+          portfolio map <ExternalLink size={11} />
         </a>
         <a className="hover:text-slate-900 inline-flex items-center gap-1" href={VISUALIZER_URL} target="_blank" rel="noreferrer">
           unified visualizer <ExternalLink size={11} />
