@@ -266,7 +266,7 @@ export default function App() {
               <div className="text-[10px] uppercase tracking-widest text-slate-500 font-bold code mb-1">
                 Portfolio map
               </div>
-              <div className="text-sm font-semibold text-slate-900 code">22 live properties</div>
+              <div className="text-sm font-semibold text-slate-900 code">60+ live properties</div>
               <div className="text-xs text-slate-500 mt-2 group-hover:text-slate-700">
                 Crawlable map of the wider Kinetic Gain network across suite, atlas, and operator surfaces.
               </div>
